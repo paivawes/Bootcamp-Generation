@@ -1,0 +1,32 @@
+create database ecommerce;
+
+use ecommerce;
+
+create table tb_prod(
+	id bigint (8) auto_increment,
+	nome varchar(25),
+	distrib varchar(30),
+	valor float,
+	disponib boolean,
+    
+	primary key (id)
+);
+
+insert into tb_prod (nome, distrib, valor, disponib) values ("Arroz","Camil",1000.00,false);
+insert into tb_prod (nome, distrib, valor, disponib) values ("Feijão","Camil",6000.00,true);
+insert into tb_prod (nome, distrib, valor, disponib) values ("Açucar","Barra",100.00,true);
+insert into tb_prod (nome, distrib, valor, disponib) values ("Creme de avelã","Nutella",2000.00,true);
+insert into tb_prod (nome, distrib, valor, disponib) values ("Fanta","Coca-cola",520.00,false);
+insert into tb_prod (nome, distrib, valor, disponib) values ("Guarana","Dolly",956.00,true);
+insert into tb_prod (nome, distrib, valor, disponib) values ("Lasanha","Seara",680.00,false);
+insert into tb_prod (nome, distrib, valor, disponib) values ("Macarrão","Adria",600.00,false);
+
+select * from tb_prod where valor > 500;
+select * from tb_prod where valor < 500;
+
+update tb_prod set disponib = false where id = 2;
+update tb_prod set disponib = false where id = 3;
+update tb_prod set disponib = false where id = 4;
+update tb_prod set disponib = false where id = 6;
+
+select * from tb_prod;

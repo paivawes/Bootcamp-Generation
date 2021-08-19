@@ -1,0 +1,24 @@
+use db_RH;
+
+create table colaboradores(
+	id bigint auto_increment,
+	nome varchar(50)not null,
+	salario decimal(10,2),
+	tel char(11),
+	ativo boolean,
+
+	primary key(id)
+);
+
+insert into colaboradores (nome, salario, tel, ativo) values ("Larissa", 4500.00, 1195581234, true);
+insert into colaboradores (nome, salario, tel, ativo) values ("João", 5689.00, 1356891245, false);
+insert into colaboradores (nome, salario, tel, ativo) values ("Weslley",12500.00, 1195578846, true);
+insert into colaboradores (nome, salario, tel, ativo) values ("Nathy",1500.00, 12457898655 ,true);
+insert into colaboradores (nome, salario, tel, ativo) values ("Lucia",1950.00,32556556556,true);
+
+select * from colaboradores where salario > 2000.00;
+select * from coloboradores where salario < 2000.00;
+ 
+update colaboradores set ativo = true where id=2;
+
+select * from colaboradores
