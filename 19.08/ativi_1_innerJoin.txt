@@ -1,0 +1,45 @@
+create database db_gen_game_on;
+
+use db_gen_game_on;
+
+create table tb_classe( 
+jogo varchar(10), 
+emulador varchar(10), 
+genero varchar(10), 
+primary key(jogo) 
+);
+
+create table tb_person(
+person varchar(15),
+skill varchar(15),
+tipo varchar(10),
+pont_ataque bigint,
+jogo_person varchar(15),
+primary key (person),
+foreign key (jogo_person) references tb_classe(jogo)
+);
+
+insert into tb_classe (jogo, emulador, genero) values 
+("Celeste","PC","Aventura"),
+("Smash Bros",Nintendo","Luta"),
+("Zelda BOTW","Nintendo","Aventura")
+("Pokemon","Nintendo","RPG");
+
+insert into tb_person (person, skill, tipo, pont_ataque, jogo_person) values
+("Link","Sheikah Slate","Hylia",3500,"Zelda BOTW"),
+("Mario","Cogumelo","Encanador",1500,"Smash Bros"),
+("Celeste","Dash","Humana",0,"Celeste"),
+("Impa","Magia","Sheikah",3200,"Zelda BOTW"),
+("Rosalina","Star","Princesa",2000,"Smash Bros"),
+("Pikachu","Raio","Eletrico",3100,"Pokemon"),
+("Syleon","Choque","Fada",2900,"Pokemon"),
+ ("Geratina","Garra","Fantasma",4100,"Pokemon");
+
+select * from tb_classe
+inner join tb_person on tb_person.jogo_person = tb_classe.jogo;
+
+select * from tb_person where pont_ataque > 2000;
+
+select * from tb_person where person like "%c%";
+
+
